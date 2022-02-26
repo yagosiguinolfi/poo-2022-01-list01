@@ -22,15 +22,16 @@ public class Cliente {
   }
 
   public void realizarDeposito(float valor) {
-    this.saldo = +valor;
+    this.saldo += valor;
     JOptionPane.showMessageDialog(null, "Novo saldo: " + this.saldo);
   }
 
   public void realizarSaque(float valor) {
     if (this.saldo >= valor) {
-      this.saldo = -valor;
+      float saldoAnt = this.saldo;
+      this.saldo -= valor;
       JOptionPane.showMessageDialog(null,
-          "Saldo anterior saldo: " + (this.saldo + valor) +
+          "Saldo anterior saldo: " + saldoAnt +
               "\nValor sacado: " + valor +
               "\nSaldo atual: " + this.saldo);
     } else {
